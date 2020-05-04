@@ -1,9 +1,9 @@
 'use strict';
 
-let tasks = [];
+const tasks = [];
 
 const updateTasks = () => {
-  let tasksElm = document.querySelector('.todo__tasks');
+  const tasksElm = document.querySelector('.todo__tasks');
   tasksElm.innerHTML = '';
   for (let i = 0; i < tasks.length; i++) {
     tasksElm.innerHTML += `<div class="task">${tasks[i]}</div>`
