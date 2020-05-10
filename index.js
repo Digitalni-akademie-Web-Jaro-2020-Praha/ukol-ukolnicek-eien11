@@ -1,13 +1,26 @@
 'use strict';
 
-const tasks = [];
+let tasks = [];
 
 const updateTasks = () => {
-  const tasksElm = document.querySelector('.todo__tasks');
+  let tasksElm = document.querySelector('.todo__tasks');
   tasksElm.innerHTML = '';
   for (let i = 0; i < tasks.length; i++) {
-    tasksElm.innerHTML += `<div class="task">${tasks[i]}</div>`
+    const itemElm = renderTask(tasks[i], i);
+    tasksElm.appendChild(itemElm);
   }
+}
+
+const renderTask = (task, index) => {
+  const itemElm = document.createElement('div');
+  itemElm.className = 'todo__new';
+  itemElm.dataset.index = index;
+  itemElm.innerHTML = `<button></button><span>${task}</span>`;
+  const buttonElm = itemElm.querySelector('button');
+  buttonElm.className = 'btn-rmv';
+  buttonElm.textContent = '-';
+  buttonElm.addEventListener('click', removeTask);
+  return itemElm;
 }
 
 const addTask = () => {
@@ -18,6 +31,13 @@ const addTask = () => {
     inputElm.value = '';
   }
 }
+
+const removeTask = (e) => {
+  const index = e.target.dataset.index;
+  tasks.splice(index, 1);
+  updateTasks();
+}
+
 
 document.querySelector('.btn-add').addEventListener('click', addTask);
 

@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap&subset=latin-ext');
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap&subset=latin-ext");
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 15px;
 }
 
@@ -60,6 +60,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 2rem;
+  line-height: 2.2rem;
 }
 
 .btn-add {
@@ -72,6 +73,19 @@ body {
 
   font-size: 1.25rem;
   margin-left: -3.5rem;
+}
+
+.btn-rmv {
+  width: 2rem;
+  height: 2rem;
+  background-color: #e37250;
+  border: none;
+  outline: none;
+  border-radius: 1.5rem;
+
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  margin-left: -3rem;
 }
 
 .new-task {
@@ -87,4 +101,14 @@ body {
 
 .task {
   padding: 1rem 2rem;
+}
+
+button {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s linear;
+}
+
+button:hover {
+  opacity: 1;
 }
